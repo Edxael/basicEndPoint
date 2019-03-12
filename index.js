@@ -26,10 +26,7 @@ app.get('/test', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
-  res.send({
-    message: 'success',
-    data: items
-  })
+  res.send(items)
 })
 
 app.listen((process.env.PORT || 5000), (err) => {
