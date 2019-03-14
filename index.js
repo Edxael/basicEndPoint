@@ -4,6 +4,8 @@ const bodyParser = require('body-parser')
 
 app.use(bodyParser.json())
 
+let userCart = []
+
 let items = [
   {
     name: 'computer',
@@ -34,9 +36,9 @@ app.get('/items', (req, res) => {
 
 app.post('/cart', (req, res) => {
   console.log(req.body)
-  items.push(req.body)
-  console.log(items)
-  res.send(items)
+  userCart.push(req.body)
+  console.log(userCart)
+  res.send(userCart)
 })
 
 app.listen((process.env.PORT || 5000), (err) => {
