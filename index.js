@@ -1,5 +1,8 @@
 const express = require('express')
 const app = express()
+const bodyParser = require('body-parser')
+
+app.use(bodyParser.json())
 
 let items = [
   {
@@ -26,6 +29,13 @@ app.get('/test', (req, res) => {
 })
 
 app.get('/items', (req, res) => {
+  res.send(items)
+})
+
+app.post('/cart', (req, res) => {
+  console.log(req.body)
+  items.push(req.body)
+  console.log(items)
   res.send(items)
 })
 
