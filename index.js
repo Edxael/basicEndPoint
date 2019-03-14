@@ -50,8 +50,7 @@ app.post('/cart', (req, res) => {
 
 app.delete('/cart/:id', (req, res) => {
   console.log(req.params.id)
-  let tempArr = userCart.filter((x) => { return x.id !== req.params.id })
-  userCart = tempArr
+  userCart = userCart.filter((x) => { return x.id != req.params.id })
   console.log(userCart)
   res.send(userCart)
 })
