@@ -37,9 +37,21 @@ app.get('/items', (req, res) => {
   res.send(items)
 })
 
+app.get('/cart', (req, res) => {
+  res.send(userCart)
+})
+
 app.post('/cart', (req, res) => {
   console.log(req.body)
   userCart.push(req.body)
+  console.log(userCart)
+  res.send(userCart)
+})
+
+app.delete('/cart/:id', (req, res) => {
+  console.log(req.params.id)
+  let tempArr = userCart.filter((x) => { return x.id !== req.params.id })
+  userCart = tempArr
   console.log(userCart)
   res.send(userCart)
 })
