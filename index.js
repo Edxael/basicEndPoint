@@ -49,7 +49,6 @@ app.post('/cart', (req, res) => {
 })
 
 app.delete('/cart/:id', (req, res) => {
-  // It works
   console.log(req.params.id)
   let tempArr = userCart.filter((x) => { return x.id !== req.params.id })
   userCart = tempArr
